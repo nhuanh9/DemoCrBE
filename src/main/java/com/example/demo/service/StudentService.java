@@ -22,9 +22,8 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public Page<Student> findAll(Pageable pageable) {
-        pageable = PageRequest.of(0,10, Sort.by("score"));
-        return studentRepository.findAll(pageable);
+    public Iterable<Student> findAll() {
+        return studentRepository.findAll();
     }
 
     @Override

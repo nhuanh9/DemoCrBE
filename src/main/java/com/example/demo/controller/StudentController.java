@@ -17,8 +17,8 @@ public class StudentController {
     StudentService studentService;
 
     @GetMapping
-    public ResponseEntity<Iterable<Student>> findAll(Pageable pageable) {
-        return new ResponseEntity<>(studentService.findAll(pageable), HttpStatus.OK);
+    public ResponseEntity<Iterable<Student>> findAll() {
+        return new ResponseEntity<>(studentService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping
