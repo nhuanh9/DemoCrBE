@@ -45,4 +45,14 @@ public class StudentService implements IStudentService {
     public Page<Student> findAllByScoreGreaterThan8(Pageable pageable, Double score) {
         return studentRepository.findAllByScoreGreaterThan(pageable, score);
     }
+
+    @Override
+    public Iterable<Class> findAllByClazzId(Long id) {
+        return studentRepository.findAllByClazzId(id);
+    }
+
+    @Override
+    public Iterable<Student> findAllScoreBetween(Double from, Double to) {
+        return studentRepository.findAllByScoreBetween(from, to);
+    }
 }

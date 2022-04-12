@@ -10,5 +10,10 @@ import org.springframework.stereotype.Repository;
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
     Page<Student> findAllByNameContaining(Pageable pageable, String name);
+
     Page<Student> findAllByScoreGreaterThan(Pageable pageable, Double score);
+
+    Iterable<Class> findAllByClazzId(Long id);
+
+    Iterable<Student> findAllByScoreBetween(Double from, Double to);
 }
