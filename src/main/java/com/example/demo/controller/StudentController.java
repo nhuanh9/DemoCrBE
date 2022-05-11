@@ -55,7 +55,7 @@ public class StudentController {
     public ResponseEntity findByCategoryId(@RequestParam Long id) {
         return new ResponseEntity(studentService.findAllByClazzId(id), HttpStatus.OK);
     }
-
+//nal
     @GetMapping("/score-between")
     public ResponseEntity findByCategoryId(@RequestParam Double from, Double to) {
         return new ResponseEntity(studentService.findAllScoreBetween(from, to), HttpStatus.OK);
