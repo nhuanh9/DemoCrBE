@@ -68,8 +68,6 @@ public class StudentController {
         return new ResponseEntity<>(studentService.findById(id).get(), HttpStatus.OK);
     }
 
-
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         studentService.remove(id);
