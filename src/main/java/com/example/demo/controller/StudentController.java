@@ -5,6 +5,7 @@ import com.example.demo.model.Student;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,11 @@ public class StudentController {
     @GetMapping
     public ResponseEntity<Iterable<Student>> findAll() {
         return new ResponseEntity<>(studentService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/search-by-name")
+    public ResponseEntity<Iterable<Student>> findAllByNameContaining(@RequestParam String name, Pageable pageable) {
+        return new ResponseEntity<>(studentService.findAllByNameContaining(pageable, name), HttpStatus.OK);
     }
 
     @PostMapping
