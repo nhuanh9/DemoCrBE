@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
@@ -29,7 +30,7 @@ public class StudentController {
     }
 
     @GetMapping("/search-by-name")
-    public ResponseEntity<Iterable<Student>> findAllByNameContaining(@RequestParam String name, Pageable pageable) {
+    public ResponseEntity<Iterable<Student>> findAllByNameContaining(@RequestParam String name,@PageableDefault(size = 3) Pageable pageable) {
         return new ResponseEntity<>(studentService.findAllByNameContaining(pageable, name), HttpStatus.OK);
     }
 
