@@ -14,6 +14,7 @@ public class Product {
 
     private int price;
 
+    private String img;
     @ManyToOne
     private Category category;
 
@@ -50,5 +51,13 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }
